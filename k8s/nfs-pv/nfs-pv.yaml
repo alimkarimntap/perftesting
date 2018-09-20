@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-perftest
+spec:
+  capacity:
+    storage: 20Gi 
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.0.100
+    path: "/awesome-nostalgic-euclid"
+
+

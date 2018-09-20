@@ -1,0 +1,15 @@
+[global]
+
+[readonly]
+ioengine=libaio
+#iodepth=4
+rw=read
+bs=1m
+direct=0
+size=5g
+numjobs=1
+loops=5
+directory=/nfs1
+filename=testfile.dd
+runtime=5m
+

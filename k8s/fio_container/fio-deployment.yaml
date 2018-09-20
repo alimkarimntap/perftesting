@@ -1,0 +1,39 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: fio
+  labels:
+    app: perftest
+spec:
+  selector:
+    matchLabels:
+      app: perftest
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: perftest
+        tier: frontend
+    spec:
+      containers:
+              # - image: wordpress:4.8-apache
+      - image: clusterhq/fio-tool
+        name: fio
+        env:
+        - name: REMOTEFILES
+          value: "https://storage.googleapis.com/ntap-pm-bucket/fio/fio_job_file.fio"
+        - name: JOBFILES
+          value: "fio_job_file.fio"
+        ports:
+        - containerPort: 80
+          name: fio
+        volumeMounts:
+        - name: perftest-persistent-storage
+          mountPath: /nfs1
+      volumes:
+      - name: perftest-persistent-storage
+        persistentVolumeClaim:
+          claimName: nfs-perftest
+

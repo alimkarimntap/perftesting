@@ -1,0 +1,15 @@
+# Define the persistent volume claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-perftest
+  labels:
+          app: perftest
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 20Gi 
+
