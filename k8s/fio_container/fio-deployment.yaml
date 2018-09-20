@@ -23,7 +23,7 @@ spec:
         name: fio
         env:
         - name: REMOTEFILES
-          value: "https://storage.googleapis.com/ntap-pm-bucket/fio/fio_job_file.fio"
+          value: "https://github.com/alimkarimntap/perftesting/blob/master/test_tools/fio/fio_job_file.fio"
         - name: JOBFILES
           value: "fio_job_file.fio"
         ports:
