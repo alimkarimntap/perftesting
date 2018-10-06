@@ -11,5 +11,5 @@ numjobs=5
 loops=5
 directory=/nfs1
 filename=testfile.dd
-runtime=15m
+runtime=30m
 
